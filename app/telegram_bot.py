@@ -38,7 +38,7 @@ async def start(update: Update, context: CallbackContext) -> None:
                 logger.info(f"New user registered: {chat_id}")
             
             await update.message.reply_text(
-                "🐋 Welcome to Whale Tracker Bot!\n\n"
+                "🐋 Welcome to Crypto Whale Tracker Bot!\n\n"
                 "Commands:\n"
                 "/subscribe [tokens] - Track specific cryptocurrencies\n"
                 "/unsubscribe - Stop tracking all tokens\n"
