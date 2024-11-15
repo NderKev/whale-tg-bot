@@ -1,6 +1,6 @@
-# **Whale Tracker Telegram Bot ( whale-tg-bot)** 
+# **Crypto Whale Tracker Telegram Bot ( whale-tg-bot)** 
 
-🐋 **Whale Tracker Telegram Bot** monitors large cryptocurrency transactions on the blockchain and alerts users when significant movements occur. This bot helps users stay informed about whale activities, which often signal market trends.
+🐋 **Crypto Whale Tracker Telegram Bot** monitors large cryptocurrency transactions on the blockchain and alerts users when significant movements occur. This bot helps users stay informed about whale activities, which often signal market trends.
 
 A telegram bot to track crypto whale activities in BTC, BNB, ETH, and other EVM-L1 and L2 networks.
 
@@ -52,8 +52,8 @@ The bot comprises the following components:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/whale-tracker-bot.git
-   cd whale-tracker-bot
+   git clone https://github.com/NderKev/whale-tg-bot.git
+   cd https://github.com/NderKev/whale-tg-bot
    ```
 
 2. **Install Dependencies**:
