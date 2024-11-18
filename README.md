@@ -64,9 +64,12 @@ The bot comprises the following components:
 3. **Set Environment Variables**:
    Create a `.env` file or set these variables in your environment:
    ```env
-   BLOCKCHAIN_API_KEY=your-blockchain-api-key
-   TELEGRAM_BOT_TOKEN=your-telegram-bot-token
-   DATABASE_URL=sqlite:///whale_tracker.db
+    DATABASE_URL=sqlite:///whale_tracker.db
+    BLOCKCHAIN_API_KEY=your-whale-alert-api-key
+    BLOCKCHAIN_API_URL=etherscan  # "etherscan" for Etherscan or "whale_alert" for Whale Alert
+    ETHERSCAN_API_KEY=your-etherscan-api-key
+    MIN_TRANSACTION_VALUE=100  # In Ether (or equivalent)
+    TELEGRAM_BOT_TOKEN=your-telegram-bot-token
    ```
 
 4. **Run Database Migrations**:
