@@ -64,12 +64,13 @@ The bot comprises the following components:
 3. **Set Environment Variables**:
    Create a `.env` file or set these variables in your environment:
    ```env
-    DATABASE_URL=sqlite:///whale_tracker.db
-    WHALE_ALERT_API_KEY=your-whale-alert-api-key
-    BLOCKCHAIN_API_URL=etherscan  # "etherscan" for Etherscan or "whale_alert" for Whale Alert
-    ETHERSCAN_API_KEY=your-etherscan-api-key
-    MIN_TRANSACTION_VALUE=100  # In Ether (or equivalent)
-    TELEGRAM_BOT_TOKEN=your-telegram-bot-token
+   DATABASE_URL=sqlite:///whale_tracker.db
+   WHALE_ALERT_API_KEY=your-whale-alert-api-key
+   BLOCKCHAIN_API_URL=etherscan  # "etherscan" for Etherscan or "whale_alert" for Whale Alert
+   ETHERSCAN_API_KEY=your-etherscan-api-key
+   MIN_TRANSACTION_VALUE=100  # In Ether (or equivalent)
+   TELEGRAM_BOT_TOKEN=your-telegram-bot-token
+   WATCHER_CHECK_INTERVAL=60 # The intervals of sleep the watcher will take in seconds
    ```
 
 4. **Run Database Migrations**:
@@ -122,7 +123,7 @@ The bot fetches data from a blockchain monitoring API. Below are steps to config
 1. **Whale Alert API**:
    - Sign up at [Whale Alert](https://www.whale-alert.io/).
    - Obtain your API key.
-   - Set the `WHALE_ALERT_API_KEY` environment variable.
+   - Set the `BLOCKCHAIN_API_KEY` environment variable.
 
 2. **Etherscan API** (Ethereum-specific):
    - Sign up at [Etherscan](https://etherscan.io/).
