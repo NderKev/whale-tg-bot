@@ -20,9 +20,14 @@ def validate_tokens(tokens: str) -> tuple[bool, List[str]]:
     """
     if not tokens:
         return False, []
-    
+
+    # Clean and split tokens, ensuring no extra spaces
     cleaned_tokens = [t.strip().upper() for t in tokens.split() if t.strip()]
+
     # Add additional validation rules here (e.g., check against a list of valid tokens)
+    if not all(t.isalnum() for t in cleaned_tokens):
+        return False, []
+
     return bool(cleaned_tokens), cleaned_tokens
 
 async def start(update: Update, context: CallbackContext) -> None:
@@ -36,7 +41,7 @@ async def start(update: Update, context: CallbackContext) -> None:
                 session.add(user)
                 session.commit()
                 logger.info(f"New user registered: {chat_id}")
-            
+
             await update.message.reply_text(
                 "🐋 Welcome to Crypto Whale Tracker Bot!\n\n"
                 "Commands:\n"
@@ -70,11 +75,11 @@ async def subscribe(update: Update, context: CallbackContext) -> None:
             if not user:
                 await update.message.reply_text("Please /start the bot first!")
                 return
-            
+
             user.preferences = " ".join(cleaned_tokens)
             session.commit()
             logger.info(f"User {chat_id} subscribed to: {cleaned_tokens}")
-            
+
             await update.message.reply_text(
                 f"✅ You are now tracking whale movements for:\n"
                 f"{', '.join(cleaned_tokens)}"
@@ -116,7 +121,7 @@ async def list_subscriptions(update: Update, context: CallbackContext) -> None:
                     "Use /subscribe [tokens] to start tracking."
                 )
                 return
-            
+
             tokens = user.preferences.split()
             await update.message.reply_text(
                 "🔍 Your current subscriptions:\n"
@@ -133,23 +138,23 @@ def setup_bot() -> None:
     try:
         if not TELEGRAM_BOT_TOKEN:
             raise ValueError("Telegram bot token not configured")
-        
+
         application = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
-        
+
         # Register command handlers
         application.add_handler(CommandHandler("start", start))
         application.add_handler(CommandHandler("subscribe", subscribe))
         application.add_handler(CommandHandler("unsubscribe", unsubscribe))
         application.add_handler(CommandHandler("list", list_subscriptions))
         application.add_handler(CommandHandler("help", start))  # Help shows the same as start
-        
+
         logger.info("Bot setup completed successfully")
-        
+
         # Start webhook or polling based on environment
         if os.getenv('ENVIRONMENT') == 'production':
             port = int(os.getenv('PORT', 8443))
             app_name = os.getenv('APP_NAME')
-            
+
             # Start webhook
             application.run_webhook(
                 listen="0.0.0.0",
@@ -162,7 +167,7 @@ def setup_bot() -> None:
             # Start polling for development
             application.run_polling()
             logger.info("Bot polling started")
-            
+
     except ValueError as e:
         logger.error(f"Configuration error: {str(e)}")
         raise

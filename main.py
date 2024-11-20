@@ -1,6 +1,6 @@
 import time
 from app.blockchain_monitor import fetch_large_transactions
-from app.alerts import send_whale_alert
+from app.alerts.whale_alerts import send_whale_alert
 from app.telegram_bot import setup_bot
 from app.database import SessionLocal, User, Transaction
 

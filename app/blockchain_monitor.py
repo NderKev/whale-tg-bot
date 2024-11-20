@@ -35,7 +35,7 @@ def fetch_etherscan_transactions():
         "startblock": 0,  # Start from the first block
         "endblock": 99999999,  # Until the latest block
         "page": 1,  # Pagination
-        "offset": 10,  # Number of results per page
+        "offset": 100,  # Number of results per page
         "sort": "desc",  # Sort by latest transactions
         "apikey": ETHERSCAN_API_KEY  # Etherscan API Key
     }
