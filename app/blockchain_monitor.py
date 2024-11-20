@@ -1,5 +1,5 @@
 import requests
-from app.config import BLOCKCHAIN_API_KEY, BLOCKCHAIN_API_URL, MIN_TRANSACTION_VALUE, ETHERSCAN_API_KEY
+from app.config import WHALE_ALERT_API_KEY, BLOCKCHAIN_API_URL, MIN_TRANSACTION_VALUE, ETHERSCAN_API_KEY
 
 def fetch_large_transactions():
     """Fetch large transactions either from Whale Alert or Etherscan depending on configuration."""
@@ -15,7 +15,7 @@ def fetch_large_transactions():
 def fetch_whale_alert_transactions():
     """Fetch transactions from Whale Alert API."""
     params = {
-        "api_key": BLOCKCHAIN_API_KEY,
+        "api_key": WHALE_ALERT_API_KEY,
         "min_value": MIN_TRANSACTION_VALUE  # Threshold in USD or equivalent
     }
     response = requests.get(BLOCKCHAIN_API_URL, params=params)

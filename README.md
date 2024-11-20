@@ -65,7 +65,7 @@ The bot comprises the following components:
    Create a `.env` file or set these variables in your environment:
    ```env
     DATABASE_URL=sqlite:///whale_tracker.db
-    BLOCKCHAIN_API_KEY=your-whale-alert-api-key
+    WHALE_ALERT_API_KEY=your-whale-alert-api-key
     BLOCKCHAIN_API_URL=etherscan  # "etherscan" for Etherscan or "whale_alert" for Whale Alert
     ETHERSCAN_API_KEY=your-etherscan-api-key
     MIN_TRANSACTION_VALUE=100  # In Ether (or equivalent)
@@ -122,7 +122,7 @@ The bot fetches data from a blockchain monitoring API. Below are steps to config
 1. **Whale Alert API**:
    - Sign up at [Whale Alert](https://www.whale-alert.io/).
    - Obtain your API key.
-   - Set the `BLOCKCHAIN_API_KEY` environment variable.
+   - Set the `WHALE_ALERT_API_KEY` environment variable.
 
 2. **Etherscan API** (Ethereum-specific):
    - Sign up at [Etherscan](https://etherscan.io/).
